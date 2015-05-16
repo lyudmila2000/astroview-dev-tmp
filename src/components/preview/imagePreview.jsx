@@ -3,6 +3,7 @@ import ImageActions from '../../actions/imageActions';
 import ScaleBar from './scaleBar.jsx';
 import scaleFunctions from '../../utils/scaleFunctions';
 import _ from 'underscore';
+import Colors from './colours.jsx';
 
 var canvasId = 'previewCanvas',
 		size = 400;
@@ -20,7 +21,8 @@ class ImagePreview extends React.Component {
 			offset: {
 				x:0,
 				y:0
-			}
+			},
+			editColors: false
 		};
 		this.hasScalingChanged = (this.props.image.imgRaw) ? false : true;
 	}
@@ -101,8 +103,8 @@ class ImagePreview extends React.Component {
 		ImageActions.showPreview(null);
 	}
 
-	updateScaleFunction(value){
-		let newFunction = value.target.value;
+	updateScaleFunction(e){
+		let newFunction = e.target.value;
 		ImageActions.updateScaleFunction(this.props.image.id, newFunction);
 	}
 
@@ -112,6 +114,11 @@ class ImagePreview extends React.Component {
 
 	updateName(name){
 		ImageActions.updateName(this.props.image, name);
+	}
+
+	editColors(){
+		let state = !this.state.editColors;
+		this.setState({editColors: state});
 	}
 
 	render(){
@@ -125,6 +132,12 @@ class ImagePreview extends React.Component {
 			requestChange: this.updateName.bind(this)
 		};
 
+		let colors = null;
+
+		if(this.state.editColors){
+			colors = <Colors if={this.state.editColors} image={this.props.image} colors={this.props.image.scaling.colors} close={this.editColors.bind(this)}/>
+		}
+
 		return (
 			<div>
 				<div className="overlay"></div>
@@ -132,7 +145,9 @@ class ImagePreview extends React.Component {
 					<input type="text" className="image-name" valueLink={nameValueLink} />
 					<canvas width={size} height={size} className="preview__canvas" id={canvasId}
 							onMouseMove={_.throttle(this.mouseMove.bind(this), 300)} />
-					<ScaleBar image={this.props.image}/>
+						<ScaleBar image={this.props.image}/>
+					<button type="button" className="btn btn-primary" onClick={this.editColors.bind(this)}>Edit Colors</button>
+					{colors}
 					<div>
 						<select className="form-control" onChange={this.updateScaleFunction.bind(this)}>
 							{scaleOptions}

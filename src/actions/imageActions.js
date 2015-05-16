@@ -37,7 +37,7 @@ class Image {
       max: 0,
       scaleMin: 0,
       scaleMax: 0,
-      colors: ['black', 'red', 'orange', 'yellow', 'white'],
+      colors: ['#000000', '#FFFFFF'],
       scaleFunction: 'linear',
       ctx: ctx
     };
@@ -301,6 +301,11 @@ let ImageActions = {
     });
     state.tools.set('zoom', label);
     canvas.renderAll();
+  },
+
+  updateColors: function updateColors(image, colors){
+    let imageCursor = state.images.select({id: image.id});
+    imageCursor.select('scaling').set('colors', colors);
   }
 
 };

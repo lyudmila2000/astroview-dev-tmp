@@ -1,3 +1,5 @@
+@require '_color-picker'
+
 .preview
   position: absolute
   left: $sidebarWidth
@@ -11,7 +13,7 @@
 
   .preview__canvas
     width: 500px
-    heightL 500px
+    height: 500px
     border: 1px solid #333
     background: #000
     cursor: crosshair
@@ -32,3 +34,91 @@
 
     &:focus
       border-bottom-color: $primary
+
+  .colors-panel
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+  .colors-overlay
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(0,0,0,0.8)
+
+  .colors-inner
+    position: absolute
+    background: $bg
+    padding: 20px
+    top: 50%
+    transform: translateY(-50%)
+
+  .presets
+    margin: 5px 0
+    overflow: hidden
+
+  .color-preset
+    width: 50px
+    height: 30px
+    cursor: pointer
+    margin-right: 5px
+    float: left
+
+
+  .color-picker-wrapper
+    overflow: hidden
+    margin-bottom: 10px
+
+  .buttons button
+    margin-right: 5px;
+
+  .colors
+    margin-bottom: 20px
+    height: 50px
+    width: 500px
+
+    .color
+      text-align: center
+      height: 50px
+      float: left
+      margin-bottom: 5px
+      cursor: pointer
+      position: relative
+      &:active
+        cursor: ew-resize!important
+
+    .placeholder
+      background: $secondary
+      float: left
+      height: 50px
+      line-height: 50px
+      text-align: center
+      outline: 2px solid #000
+      position: relative
+      z-index: 1
+      &:before
+        content: "Drop here"
+        color: white
+
+    .color.active
+      z-index: 1
+      outline: 2px solid #FFFFFF
+      color: white
+      box-shadow: 0px 0px 6px rgba(0,0,0,0.9)
+
+    .color .remove
+      display: inline-block
+      background: red
+      padding: 2px 10px 4px
+      margin: 13px
+      border-radius: 50px
+      font-weight: bold
+      box-shadow: 0px 0px 3px rgba(0,0,0,0.5)
+
+      &:hover
+        color: red
+        background: white
