@@ -16,7 +16,7 @@
     "livereload": "^0.9.3",
     "napa": "^3.0.0",
     "object-assign-shim": "^1.0.0",
-    "react": "^0.13.3",
+    "react": "^0.14.0",
     "react-color-picker": "^2.1.7",
     "stylus": "^0.50.0",
     "underscore": "^1.8.3",
