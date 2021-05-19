@@ -10,6 +10,14 @@ _Version 1.0 is currently in development although a preview is currently live._
 Visit the app at: [www.astroviewapp.com](http://www.astroviewapp.com)
 
 Supported browsers:
+
 - Chrome
 - Firefox
 - IE 11+
+
+# Dev
+
+```
+yarn install
+yarn dev
+```
