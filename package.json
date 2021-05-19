@@ -4,17 +4,17 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "babelify": "^5.0.4",
     "baobab": "^0.4.2",
     "browserify": "^9.0.8",
     "color": "^0.8.0",
-    "http-server": "^0.7.5",
+    "http-server": "^0.12.3",
     "interpolation-arrays": "0.0.0",
-    "livereload": "^0.3.6",
-    "napa": "1.2.0",
+    "livereload": "^0.9.3",
+    "napa": "^3.0.0",
     "object-assign-shim": "^1.0.0",
     "react": "^0.13.3",
     "react-color-picker": "^2.1.7",
