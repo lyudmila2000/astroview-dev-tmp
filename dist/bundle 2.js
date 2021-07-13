@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module 'fitsjs/lib/fits' from '/Users/lyudmila/Documents/astroview_again/astroview-dev-tmp/src/utils'");

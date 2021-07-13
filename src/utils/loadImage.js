@@ -16,7 +16,7 @@ module.exports = function LoadImage (file, callback) {
   function onLoad (fits){
     if (fits.hdus.length > 0){
 
-      let metaData = fits.getDataUnit();
+      let metaData = fits.getDataUnit(1);
 
       output.metaData = metaData;
       output.header = fits.getHeader();
